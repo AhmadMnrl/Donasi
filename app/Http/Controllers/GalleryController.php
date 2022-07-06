@@ -18,7 +18,7 @@ class GalleryController extends Controller
     {
 
         $page = $request->page  ??  1 ;
-        $limit = $request->limit  ?? 6;
+        $limit = $request->limit  ?? 5;
         $offset = ($page - 1) * $limit;
 
         $data = Gallery::offset($offset)->limit($limit)->get();

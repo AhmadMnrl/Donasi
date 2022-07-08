@@ -1,31 +1,45 @@
 @extends('layouts.master')
 @section('content')
-<div class="card" style="width: 70rem;">
-  <img class="rounded-circle mt-2 ml-4" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-    <div class="card-body">
-      <h5 class="card-title">{{$profile->nama_lengkap}}</h5>
-      <p class="card-text">{{$profile->email}}</p>
+<a href="/yayasan" class="btn btn-sm btn-danger">Back</a>
+<div class="card mt-2 text-center" style="width: 100%;">
+    <div class="card-header text-center">
+                    Detail Yayasan
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">No Telpon    : {{$profile->no_tlp}}</li>
-      <li class="list-group-item">Address      : {{$profile->address}}</li>
-      <li class="list-group-item">Keterangan   : {{$profile->keterangan}}</li>
-    </ul>
-    <div class="card-body">
-      <h5>Gallery</h5>
-      <div style="background: rgb(209, 209, 209); padding: 20px">
-        
-        @foreach ($images as $item)  
-        <img src="{{asset('image/'.$item->image)}}" width="250px" style="padding-left: 20px">
-        @endforeach
-        {{-- <br> --}}
-      </div>
-        <div class="mt-2">
-          {{$images->links()}}
+        <div style="">
+            <img class="rounded-circle mt-2 ml-4" width="150px" src="{{ asset('admin/assets/images/faces/default.png') }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ $profile->nama_lengkap }}</h5>
+                <p class="card-text">{{ $profile->email }}</p>
+            </div>
         </div>
-      <br><br>
-      <a href="/yayasan" class="btn btn-info">Back</a>
-      <a href="#" class="btn btn-primary">Edit</a>
-    </div>
-  </div>
-  @endsection
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">No Telpon : {{ $profile->no_tlp }}</li>
+            <li class="list-group-item">Address : {{ $profile->address }}</li>
+            <li class="list-group-item">Keterangan : {{ $profile->keterangan }}</li>
+        </ul>
+        <div class="card-body">
+            <div class="card text-center mt-3">
+                <div class="card-header">
+                    Gallery
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach ($images as $item)
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body" style=" width: 100%; min-height: 20px; max-height: 100%; float: left; margin: 3px;">
+                                    <img src="{{ asset('image/' . $item->image) }}" width="100%" height="120px" style="max-width: 100%; max-height: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center" style="padding-bottom: 0px">
+                         {{ $images->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endsection

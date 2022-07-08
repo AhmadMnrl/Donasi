@@ -65,9 +65,10 @@ class BarangDonaturController extends Controller
      * @param  \App\Barang_donatur  $barang_donatur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang_donatur $barang_donatur)
+    public function edit($id)
     {
-        //
+        $barang = Barang_donatur::find($id);
+        return view('barang.edit',compact('barang'));
     }
 
     /**

@@ -62,9 +62,10 @@ class DonaturController extends Controller
      * @param  \App\Donatur  $donatur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donatur $donatur)
+    public function edit($id)
     {
-        //
+        $donatur = Donatur::find($id);
+        return view('donatur.edit',compact('donatur'));
     }
 
     /**

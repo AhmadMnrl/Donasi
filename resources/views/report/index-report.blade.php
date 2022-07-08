@@ -6,15 +6,37 @@
         <div class="mdc-card p-0">
              <div class="row">
                 <div class="col-md-6">
-                    <h6 class="card-title card-padding pb-2">Donasi</h6>
+                    {{-- <h6 class="card-title card-padding pb-2">Donasi</h6> --}}
                 </div>
-                <div class="col-md-6 d-flex justify-content-end card-title card-padding pb-3" style="padding-right: 25px">
-                    <button style="width: 20px" data-bs-toggle="modal" data-bs-target="#exampleModal" class="mdc-button mdc-button--raised icon-button filled-button--warning mdc-ripple-upgraded " style="--mdc-ripple-fg-size:21px; --mdc-ripple-fg-scale:2.90056; --mdc-ripple-fg-translate-start:13.625px, 8.5px; --mdc-ripple-fg-translate-end:7.5px, 7.5px;">
-                    <i class="material-icons mdc-button__icon">add</i>
-                </button>
-                </div>
-            </div>
-            <div class="table-responsive">
+
+                <form class="col-md-10" action="" method="get">
+                <div class="col-md-12 d-flex ml-3 mt-3" style="">
+                    <div class="col-md-2">
+                        <a href="/report/export-excel-donasi" class="btn btn-success" target="_blank">EXPORT EXCEL</a>
+                    </div>
+                        <div class="col-sm-2 mr-2">
+                            <select class="form-control" name="" id="">
+                                <option align="center">--StartDate--</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2 mr-2">
+                            <select class="form-control" name="" id="">
+                                <option align="center">--EndDate--</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2 mr-2">
+                            <select class="form-control" name="status">
+                                <option align="center" value="">--Status--</option>
+                                <option value="Belum Selesai">Belum Selesai</option>
+                                <option value="Selesai">Selesai</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2 mr-4">
+                            <button class="btn btn-primary" type="submit">Filter</button>
+                        </div>
+                    </div>
+                </form>
+             <div class="table-responsive">
                 <table class="table table-hoverable">
                     <thead>
                         <tr>
@@ -30,14 +52,13 @@
                             <th class="text-left">Latitude</th>
                             <th class="text-left">Longitude</th>
                             <th class="text-left">Status</th>
-                            <th class="text-left">Action</th>
                         </tr>
                     </thead>
-                    @foreach ($data as $no =>$value)
+                    @foreach ($donasi as $no =>$value)
                     <tbody id="table-donasi">
                         <tr>
                             <td class="text-left">{{$no+1}}</td>
-                            <td class="text-left">{{$value->donatur->nama}}</td>
+                            <td class="text-left">{{$value->nama}}</td>
                             <td class="text-left">{{$value->jenis_donasi}}</td>
                             <td class="text-left">{{$value->jumlah}}</td>
                             <td class="text-left">{{$value->pengiriman}}</td>
@@ -48,26 +69,18 @@
                             <td class="text-left">{{$value->latitude}}</td>
                             <td class="text-left">{{$value->longitude}}</td>
                             <td class="text-left">{{$value->status}}</td>
-                            <td class="text-left">
-                                <a href="/donasi/edit/{{$value->id}}" class="mdc-button mdc-button--raised icon-button filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:21px; --mdc-ripple-fg-scale:2.90056; --mdc-ripple-fg-translate-start:15.5625px, 7.16669px; --mdc-ripple-fg-translate-end:7.5px, 7.5px;">
-                                <i class="material-icons mdc-button__icon">colorize</i>
-                                </a>
-                                <a href="/donasi/destroy/{{$value->id}}" class="mdc-button mdc-button--raised icon-button filled-button--secondary mdc-ripple-upgraded">
-                                <i class="material-icons mdc-button__icon">delete</i>
-                                </a>
-                            </td>
                         </tr>
                     </tbody>
                 @endforeach
                 </table>
             </div>
+            </div>
             <div class="d-flex justify-content-end mt-3 mr-3">
-                {{$data -> links()}}
+                @if(!isset($status))
+                    {{$donasi -> links()}}
+                @endif
             </div>
         </div>
     </div>
-    {{-- End Table --}}
-    @include('donasi.create')
-
     </div>
 @endsection

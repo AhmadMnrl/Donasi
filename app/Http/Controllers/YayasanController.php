@@ -18,7 +18,7 @@ class YayasanController extends Controller
         $profile = Yayasan::find($id);
         $id = $profile->id;
         // dd($id);
-        $images = Gallery::where('id_yayasan',$id)->orderBy('created_at','desc')->paginate(4);
+        $images = Gallery::where('id_yayasan',$id)->orderBy('created_at','desc')->paginate(3);
         // dd($images);
         return view('yayasan.profile',compact('profile','images'));
     }
@@ -88,9 +88,10 @@ class YayasanController extends Controller
      * @param  \App\Yayasan  $yayasan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Yayasan $yayasan)
+    public function edit($id)
     {
-        //
+        $yayasan = Yayasan::find($id);
+        return view('yayasan.edit',compact('yayasan'));
     }
 
     /**

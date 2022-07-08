@@ -34,7 +34,7 @@
                       <h6 class="item-subject font-weight-normal"> <a href="change-password/{{Auth::user()->id}}" style="text-decoration: none;">Change Password</a></h6>
                     </div> --}}
                     <div class="item-content d-flex align-items-start flex-column justify-content-center">
-                      <h6 class="item-subject font-weight-normal"> <a href="/profile/{{Auth::user()->id}}" style="text-decoration: none;">Edit profile</a></h6>
+                      <h6 class="item-subject font-weight-normal"> <a href="/change-password" style="text-decoration: none;">Change Password</a></h6>
                     </div>
                   </li>
                   <li class="mdc-list-item" role="menuitem">

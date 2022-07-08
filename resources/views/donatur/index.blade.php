@@ -60,11 +60,9 @@
                             <td class="text-left">${dt.no_telp}</td>
                             <td class="text-left">${dt.alamat}</td>
                             <td class="text-left">
-                                <button data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal1" class="mdc-button mdc-button--raised icon-button filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:21px; --mdc-ripple-fg-scale:2.90056; --mdc-ripple-fg-translate-start:15.5625px, 7.16669px; --mdc-ripple-fg-translate-end:7.5px, 7.5px;">
+                                <a href="/donatur/edit/${dt.id}" class="mdc-button mdc-button--raised icon-button filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:21px; --mdc-ripple-fg-scale:2.90056; --mdc-ripple-fg-translate-start:15.5625px, 7.16669px; --mdc-ripple-fg-translate-end:7.5px, 7.5px;">
                                 <i class="material-icons mdc-button__icon">colorize</i>
-                              </button>
-                              @include('donatur.edit')
+                                </a>
                                 <a href="/donatur/destroy/${dt.id}" class="mdc-button mdc-button--raised icon-button filled-button--secondary mdc-ripple-upgraded">
                                 <i class="material-icons mdc-button__icon">delete</i>
                                 </a>

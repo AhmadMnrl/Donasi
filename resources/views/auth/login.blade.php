@@ -144,7 +144,7 @@
 				<p class="text-center mb-3 mt-2">AppDonasi</p>
 				<form class="myform" action="/postlogin" method="post">
 					<div class="form-group">
-    					<input type="email" name="email" class="form-control" placeholder="Email">
+    					<input type="email" autocomplete="off" name="email" class="form-control" placeholder="Email">
   					</div>
  					<div class="form-group">
     					<input type="password" name="password" class="form-control" placeholder="Password">

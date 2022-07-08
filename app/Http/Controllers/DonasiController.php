@@ -94,9 +94,11 @@ class DonasiController extends Controller
      * @param  \App\Donasi  $donasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donasi $donasi)
+    public function edit($id)
     {
-        //
+        $donasi = Donasi::find($id);
+        $donatur = Donatur::all();
+        return view('donasi.edit',compact('donasi','donatur'));
     }
 
     /**

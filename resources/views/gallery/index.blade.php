@@ -28,7 +28,7 @@
                     <tbody id="table-gallery">
                         <tr>
                             <td class="text-left">{{$no+1}}</td>
-                            <td class="text-left"><a href="{{asset('image/'.$value->image)}}" target="_blank">{{$value->original_fullname}}</a></td>
+                            <td class="text-left"><a href="{{asset('image/'.$value->image)}}" target="_blank" rel="noopener noreferrer"><img src="{{asset('image/'.$value->image)}}" alt="" width="30%" height="50px" style="max-width: 100%; max-height: 100%;"></a></td>
                             <td class="text-left">{{$value->keterangan}}</td>
                             <td class="text-left">
                                 <a href="/gallery/destroy/{{$value->id}}" class="mdc-button mdc-button--raised icon-button filled-button--secondary mdc-ripple-upgraded">
@@ -39,7 +39,9 @@
                     </tbody>
                 @endforeach
                 </table>
-                {{$data->links()}}
+               <div class="d-flex justify-content-end mt-3 mr-3">
+                {{$data -> links()}}
+                </div>
             </div>
         </div>
     </div>

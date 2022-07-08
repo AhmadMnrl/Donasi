@@ -17,6 +17,7 @@ class CreateBeritasTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->string('foto')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

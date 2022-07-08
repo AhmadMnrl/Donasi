@@ -10,7 +10,7 @@ class Berita extends Model
 {
     protected $table = 'berita';
     protected $fillable = [
-        'title','content','created_by','updated_by'
+        'title','content','foto','original_fullname','created_by','updated_by'
     ];
     protected $primaryKey = 'id';
 }

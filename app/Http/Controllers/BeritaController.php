@@ -49,13 +49,36 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         $userId = Auth::user()->id;
+        if($request->foto > 0 ){
+            $foto = $request->foto;
+            $v_foto = time()."_".$userId."-".$foto->getClientOriginalName();
+        }
+
+
         // dd($userId);
-        Berita::create([
-    		'title' => $request->title,
-    		'content' => $request->content,
-            'created_by' => $userId,
-            'updated_by' => $userId
-    	]);
+        $berita = new Berita();
+        $berita->title = $request->title;
+        $berita->content = $request->content;
+
+        if(isset($v_foto)){
+            $berita->foto = $v_foto;
+        }
+
+        $berita->created_by = $userId;
+        $berita->updated_by = $userId;
+        $berita->save();
+
+        // Berita::create([
+    	// 	'title' => $request->title,
+    	// 	'content' => $request->content,
+        //     'foto' => $v_foto,
+        //     'original_fullname'=> $request->foto->getClientOriginalName(),
+        //     'created_by' => $userId,
+        //     'updated_by' => $userId
+    	// ]);
+        if(isset($v_foto)){
+            $foto->move(public_path().'/image',$v_foto);
+        }
         return redirect('/berita')->with('message','Data Berhasil Disimpan');
     }
 

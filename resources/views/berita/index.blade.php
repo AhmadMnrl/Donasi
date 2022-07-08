@@ -31,6 +31,7 @@
                             <th class="text-left">No</th>
                             <th class="text-left">Title</th>
                             <th class="text-left">Content</th>
+                            <th class="text-left">Foto</th>
                             <th class="text-left">Action</th>
                         </tr>
                     </thead>
@@ -41,11 +42,13 @@
                             <td class="text-left">{{$value->title}}</td>
                             <td class="text-left">{{$value->content}}</td>
                             <td class="text-left">
-                                <button data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal1" class="mdc-button mdc-button--raised icon-button filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:21px; --mdc-ripple-fg-scale:2.90056; --mdc-ripple-fg-translate-start:15.5625px, 7.16669px; --mdc-ripple-fg-translate-end:7.5px, 7.5px;">
-                                <i class="material-icons mdc-button__icon">colorize</i>
-                              </button>
-                              @include('berita.edit')
+                                @if($value->foto > 0)
+                                    <img src="{{asset('image/'.$value->foto)}}" alt="" width="50%" height="50px" style="max-width: 100%; max-height: 100%;">
+                                @else
+                                    <strong>NULL</strong>
+                                @endif
+                            </td>
+                            <td class="text-left">
                                 <a href="/berita/destroy/{{$value->id}}" class="mdc-button mdc-button--raised icon-button filled-button--secondary mdc-ripple-upgraded">
                                 <i class="material-icons mdc-button__icon">delete</i>
                                 </a>
@@ -55,7 +58,9 @@
                 @endforeach
                 </table>
             </div>
-            {{$data -> links()}}
+            <div class="d-flex justify-content-end mt-3 mr-3">
+                {{$data -> links()}}
+            </div>
         </div>
     </div>
     {{-- End Table --}}

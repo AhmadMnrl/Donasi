@@ -11,4 +11,8 @@ class Donatur extends Model
         'nama','email','no_telp','alamat'
     ];
     protected $primaryKey = 'id';
+
+    public function donasi(){
+        return $this->hasMany(Donasi::class, 'id', 'id_donatur');
+    }
 }

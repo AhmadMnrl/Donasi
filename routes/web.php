@@ -39,46 +39,64 @@ Route::prefix('api')->group(function () {
 });
 
 Route::group(['middleware' => 'auth','revalidate'],function(){
-Route::get('/', function () {
-        return view('home.dashboard');
+    Route::get('/','DashboardController@index');
+
+    Route::get('/change-password', 'ChangePasswordController@index');
+    Route::post('/change-password/store', 'ChangePasswordController@store');
+    Route::get('/donasi','DonasiController@index')->name('donasi');
+    Route::post('/donasi/store','DonasiController@store');
+    Route::get('/donasi/edit/{id}','DonasiController@edit');
+    Route::put('/donasi/update/{id}','DonasiController@update');
+    Route::get('/donasi/destroy/{id}','DonasiController@destroy');
+
+    // Berita
+    Route::get('/berita','BeritaController@index')->name('berita');
+    Route::post('/berita/store','BeritaController@store');
+    Route::get('/berita/destroy/{id}','BeritaController@destroy');
+
+    Route::get('/gallery','GalleryController@index')->name('gallery');
+    Route::post('/gallery/store','GalleryController@store');
+    Route::get('/gallery/destroy/{id}','GalleryController@destroy');
+    Route::get('/gallery/edit/{id}','GalleryController@edit');
+    Route::post('/gallery/update/{id}','GalleryController@update');
+
+    Route::get('/report','ReportController@indexReport')->name('report');
+    Route::get('/report/export-excel-donasi', 'ReportController@export_excel')->name('export');
 });
-Route::get('/test','TestController@indexYayasan');
-Route::get('/donatur','TestController@indexDonatur')->name('donatur');
 
-Route::get('/yayasan','YayasanController@index')->name('yayasan');
-Route::post('/yayasan/store','YayasanController@store');
-Route::put('/yayasan/update/{id}','YayasanController@update');
-Route::get('/yayasan/destroy/{id}','YayasanController@destroy');
+Route::group(['middleware' => ['auth','role:administrator','revalidate']],function(){
+    Route::get('/test','TestController@indexYayasan');
+    Route::get('/donatur','TestController@indexDonatur')->name('donatur');
 
-Route::get('/profileYayasan/{id}','YayasanController@profileYayasan')->name('profileYayasan');
+    Route::get('/yayasan','YayasanController@index')->name('yayasan');
+    Route::post('/yayasan/store','YayasanController@store');
+    Route::get('/yayasan/edit/{id}','YayasanController@edit');
+    Route::put('/yayasan/update/{id}','YayasanController@update');
+    Route::get('/yayasan/destroy/{id}','YayasanController@destroy');
 
-Route::get('/barang','BarangDonaturController@index')->name('barang_donatur');
-Route::post('/barang_donatur/store','BarangDonaturController@store');
-Route::put('/barang_donatur/update/{id}','BarangDonaturController@update');
-Route::get('/barang_donatur/destroy/{id}','BarangDonaturController@destroy');
+    Route::get('/profileYayasan/{id}','YayasanController@profileYayasan')->name('profileYayasan');
 
-Route::post('/donatur/store','DonaturController@store');
-Route::put('/donatur/update/{id}','DonaturController@update');
-Route::get('/donatur/destroy/{id}','DonaturController@destroy');
+    Route::get('/barang','BarangDonaturController@index')->name('barang_donatur');
+    Route::post('/barang_donatur/store','BarangDonaturController@store');
+    Route::get('/barang_donatur/edit/{id}','BarangDonaturController@edit');
+    Route::put('/barang_donatur/update/{id}','BarangDonaturController@update');
+    Route::get('/barang_donatur/destroy/{id}','BarangDonaturController@destroy');
 
-Route::get('/donasi','DonasiController@index')->name('donasi');
-Route::post('/donasi/store','DonasiController@store');
-Route::put('/donasi/update/{id}','DonasiController@update');
-Route::get('/donasi/destroy/{id}','DonasiController@destroy');
+    Route::post('/donatur/store','DonaturController@store');
+    Route::get('/donatur/edit/{id}','DonaturController@edit');
+    Route::put('/donatur/update/{id}','DonaturController@update');
+    Route::get('/donatur/destroy/{id}','DonaturController@destroy');
 
-// Berita
-Route::get('/berita','BeritaController@index')->name('berita');
-Route::post('/berita/store','BeritaController@store');
-Route::get('/berita/destroy/{id}','BeritaController@destroy');
 
-Route::get('/gallery','GalleryController@index')->name('gallery');
-Route::post('/gallery/store','GalleryController@store');
-Route::get('/gallery/destroy/{id}','GalleryController@destroy');
-Route::get('/gallery/edit/{id}','GalleryController@edit');
-Route::post('/gallery/update/{id}','GalleryController@update');
+    Route::get('/user','UserController@userIndex');
+    Route::post('/user/store','UserController@storeUser');
+    Route::get('/user/edit/{id}','UserController@editUser');
+    Route::put('/user/update/{id}','UserController@updateUser');
+    Route::get('/user/destroy/{id}','UserController@DeleteUser');
 
-Route::get('/profile/{id}','ProfileController@getProfile');
-Route::put('/update/{id}','ProfileController@updateProfile');
+    // Route::get('/profile/{id}','ProfileController@getProfile')->name('profile');
+    // Route::put('/update/{id}','ProfileController@updateProfile');
+
 
 });
 

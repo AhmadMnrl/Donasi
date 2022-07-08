@@ -13,4 +13,8 @@ class Donasi extends Model
         'latitude','status'
     ];
     protected $primaryKey = 'id';
+
+    public function donatur(){
+        return $this->belongsTo(Donatur::class, 'id_donatur', 'id');
+    }
 }

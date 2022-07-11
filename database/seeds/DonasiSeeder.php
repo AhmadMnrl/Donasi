@@ -30,8 +30,6 @@ class DonasiSeeder extends Seeder
                 'kota' => $faker->city,
                 'kecamatan' => "rand",
                 'kelurahan' => "rand",
-                'longitude' => $faker->longitude(-90, 90),
-                'latitude' => $faker->latitude(-90, 90),
                 'status' => "Belum Selesai"
     		]);
 

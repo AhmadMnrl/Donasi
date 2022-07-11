@@ -57,12 +57,8 @@
                         <input type="text" name="kelurahan" value="{{$donasi->kelurahan}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Latitude</label>
-                        <input type="text" name="latitude" value="{{$donasi->latitude}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Longitude</label>
-                        <input type="text" name="longitude" value="{{$donasi->longitude}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" class="form-label">Full Address</label>
+                        <textarea class="form-control" name="full_address" id="floatingTextarea">{{$donasi->full_address}}</textarea>
                     </div>
                      <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Status</label>

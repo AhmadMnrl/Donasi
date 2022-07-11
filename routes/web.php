@@ -21,7 +21,7 @@ Route::prefix('api')->group(function () {
     Route::put('/test/update/{id}','TestController@updateYayasan');
     Route::delete('/test/delete/{id}','TestController@deleteYayasan');
 
-    Route::get('/donatur','DonaturController@indexApi')->middleware('auth');
+    Route::get('/donatur','DonaturController@indexApi');
 
     Route::get('/yayasan','YayasanController@listYayasan');
     Route::get('/yayasan/detail/{id}','YayasanController@detailYayasan');

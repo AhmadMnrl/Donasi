@@ -22,6 +22,12 @@ class DonasiController extends Controller
     public function createApi(Request $request)
     {
         Donasi::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'no_tlp' => $request->no_tlp,
+        'transfer' => $request->transfer,
+        'qr' => $request->qr,
+        'link' => $request->link,
         'id_donatur' => $request->id_donatur,
         'jenis_donasi' => $request->jenis_donasi,
         'jumlah' => $request->jumlah,
@@ -30,8 +36,7 @@ class DonasiController extends Controller
         'kota' => $request->kota,
         'kecamatan' => $request->kecamatan,
         'kelurahan' => $request->kelurahan,
-        'longitude' => $request->longitude,
-        'latitude' => $request->latitude,
+        'fulladdress' => $request->full_address,
         'status' =>$request->status
         ]);
         return response()->json(["code" => "00", "message" => "success"]);

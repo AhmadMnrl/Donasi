@@ -15,16 +15,21 @@ class CreateDonasisTable extends Migration
     {
         Schema::create('donasis', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('no_tlp')->nullable();
+            $table->string('transfer')->nullable();
+            $table->string('qr')->nullable();
+            $table->string('link')->nullable();
             $table->integer('id_donatur');
             $table->enum('jenis_donasi',['barang','uang']);
             $table->integer('jumlah');
             $table->enum('pengiriman',['diambil','diantar']);
-            $table->string('provinsi');
-            $table->string('kota');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
-            $table->double('longitude');
-            $table->double('latitude');
+            $table->string('provinsi')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->text('full_address')->nullable();
             $table->string('status');
             $table->timestamps();
         });

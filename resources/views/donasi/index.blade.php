@@ -27,8 +27,7 @@
                             <th class="text-left">Kota</th>
                             <th class="text-left">Kecamatan</th>
                             <th class="text-left">Kelurahan</th>
-                            <th class="text-left">Latitude</th>
-                            <th class="text-left">Longitude</th>
+                            <th class="text-left">Full Address</th>
                             <th class="text-left">Status</th>
                             <th class="text-left">Action</th>
                         </tr>
@@ -45,8 +44,7 @@
                             <td class="text-left">{{$value->kota}}</td>
                             <td class="text-left">{{$value->kecamatan}}</td>
                             <td class="text-left">{{$value->kelurahan}}</td>
-                            <td class="text-left">{{$value->latitude}}</td>
-                            <td class="text-left">{{$value->longitude}}</td>
+                            <td class="text-left">{{$value->full_address}}</td>
                             <td class="text-left">{{$value->status}}</td>
                             <td class="text-left">
                                 <a href="/donasi/edit/{{$value->id}}" class="mdc-button mdc-button--raised icon-button filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:21px; --mdc-ripple-fg-scale:2.90056; --mdc-ripple-fg-translate-start:15.5625px, 7.16669px; --mdc-ripple-fg-translate-end:7.5px, 7.5px;">

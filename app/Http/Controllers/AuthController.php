@@ -21,6 +21,11 @@ class AuthController extends Controller
              return response()->json(["code" => "01", "message" => "error"]);
         }
     }
+    public function logoutApi()
+    {
+        Auth::logout();
+        return response()->json(["code" => "00", "message" => "succes"]);
+    }
     public function getLogin()
     {
         return view('auth.login');

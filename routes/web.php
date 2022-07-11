@@ -21,7 +21,7 @@ Route::prefix('api')->group(function () {
     Route::put('/test/update/{id}','TestController@updateYayasan');
     Route::delete('/test/delete/{id}','TestController@deleteYayasan');
 
-    Route::get('/donatur','DonaturController@indexApi');
+    Route::get('/donatur','DonaturController@indexApi')->middleware('auth');
 
     Route::get('/yayasan','YayasanController@listYayasan');
     Route::get('/yayasan/detail/{id}','YayasanController@detailYayasan');
@@ -36,6 +36,8 @@ Route::prefix('api')->group(function () {
     Route::get('/gallery','GalleryController@indexApi');
 
     Route::post('/loginApi','AuthController@postApi');
+
+    Route::post('logoutApi','AuthController@logoutApi');
 });
 
 Route::group(['middleware' => 'auth','revalidate'],function(){

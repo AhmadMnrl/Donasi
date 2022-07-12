@@ -14,7 +14,7 @@ class AuthController extends Controller
        return response()->json(["code" => "00", "message" => "success" , "data" => $user]);
 
     }
-    public function postApi(Request $request, $id)
+    public function postApi(Request $request)
     {
         // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
         //     $user = Auth::user();

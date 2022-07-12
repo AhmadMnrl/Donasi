@@ -11,24 +11,26 @@
 
                 <form class="col-md-10" action="" method="get">
                 <div class="col-md-12 d-flex ml-3 mt-3" style="">
-                    <div class="col-md-2">
+                    <div class="col-md-2 mr-1">
                         <a href="/report/export-excel-donasi" class="btn btn-success" target="_blank">EXPORT EXCEL</a>
                     </div>
-                        <div class="col-sm-2 mr-2">
-                            <select class="form-control" name="" id="">
-                                <option align="center">--StartDate--</option>
-                            </select>
+                        <div class="col-sm-2 pt-2 mr-2 d-flex justify-content-end">
+                            <h6 for="startDate">Start Date : </h6>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" @if(isset($startDate))value="{{$startDate}}"@endif name="startDate" class="form-control" id="startDate">
+                        </div>
+                        <div class="col-sm-2 pt-2 mr-2 d-flex justify-content-end">
+                            <h6 for="endDate">End Date : </h6>
                         </div>
                         <div class="col-sm-2 mr-2">
-                            <select class="form-control" name="" id="">
-                                <option align="center">--EndDate--</option>
-                            </select>
+                            <input type="date" @if(isset($endDate))value="{{$endDate}}"@endif name="endDate" class="form-control" id="endDate">
                         </div>
                         <div class="col-sm-2 mr-2">
                             <select class="form-control" name="status">
                                 <option align="center" value="">--Status--</option>
-                                <option value="Belum Selesai">Belum Selesai</option>
-                                <option value="Selesai">Selesai</option>
+                                <option value="Belum Selesai" @if($status == "Belum Selesai") selected="" @endif>Belum Selesai</option>
+                                <option value="Selesai" @if($status == "Selesai") selected="" @endif>Selesai</option>
                             </select>
                         </div>
                         <div class="col-sm-2 mr-4">
@@ -49,8 +51,7 @@
                             <th class="text-left">Kota</th>
                             <th class="text-left">Kecamatan</th>
                             <th class="text-left">Kelurahan</th>
-                            <th class="text-left">Latitude</th>
-                            <th class="text-left">Longitude</th>
+                            <th class="text-left">Full Address</th>
                             <th class="text-left">Status</th>
                         </tr>
                     </thead>
@@ -58,7 +59,7 @@
                     <tbody id="table-donasi">
                         <tr>
                             <td class="text-left">{{$no+1}}</td>
-                            <td class="text-left">{{$value->nama}}</td>
+                            <td class="text-left">{{$value->name}}</td>
                             <td class="text-left">{{$value->jenis_donasi}}</td>
                             <td class="text-left">{{$value->jumlah}}</td>
                             <td class="text-left">{{$value->pengiriman}}</td>
@@ -66,8 +67,7 @@
                             <td class="text-left">{{$value->kota}}</td>
                             <td class="text-left">{{$value->kecamatan}}</td>
                             <td class="text-left">{{$value->kelurahan}}</td>
-                            <td class="text-left">{{$value->latitude}}</td>
-                            <td class="text-left">{{$value->longitude}}</td>
+                            <td class="text-left">{{$value->full_address}}</td>
                             <td class="text-left">{{$value->status}}</td>
                         </tr>
                     </tbody>
@@ -77,7 +77,9 @@
             </div>
             <div class="d-flex justify-content-end mt-3 mr-3">
                 @if(!isset($status))
+                    @if (isset($status) != NULL)
                     {{$donasi -> links()}}
+                    @endif
                 @endif
             </div>
         </div>

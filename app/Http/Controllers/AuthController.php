@@ -8,7 +8,13 @@ use Auth;
 
 class AuthController extends Controller
 {
-    public function postApi(Request $request)
+    public function detail($id)
+    {
+       $user = User::find($id);
+       return response()->json(["code" => "00", "message" => "success" , "data" => $user]);
+
+    }
+    public function postApi(Request $request, $id)
     {
         // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
         //     $user = Auth::user();
@@ -30,6 +36,7 @@ class AuthController extends Controller
             // die;
             if($verify){
                 // $success['token'] =  bin2hex(random_bytes(64));
+                $success['id'] = Auth::id();
                 $success['name'] =  $user->name;
                 $success['role'] = $user->role;
                 $success['email'] = $user->email;

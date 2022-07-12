@@ -21,7 +21,7 @@ class CreateDonasisTable extends Migration
             $table->string('transfer')->nullable();
             $table->string('qr')->nullable();
             $table->string('link')->nullable();
-            $table->integer('id_donatur');
+            $table->integer('id_donatur')->nullable();
             $table->enum('jenis_donasi',['barang','uang']);
             $table->integer('jumlah');
             $table->enum('pengiriman',['diambil','diantar']);
@@ -31,7 +31,8 @@ class CreateDonasisTable extends Migration
             $table->string('kelurahan')->nullable();
             $table->text('full_address')->nullable();
             $table->string('status');
-            $table->timestamps();
+            $table->date('created_at')->nullable();
+            $table->date('updated_at')->nullable();
         });
     }
 

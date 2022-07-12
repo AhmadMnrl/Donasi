@@ -17,12 +17,19 @@ class ReportController extends Controller
 
 
         $data = DB::table('donasis','a')
-                ->join('donatur','a.id_donatur','=','donatur.id')
-                ->select('a.*','donatur.*');
-
+                // ->join('donatur','a.id_donatur','=','donatur.id')
+                // ->select('a.*','donatur.*');
+                ->select("*");
         if ($request->status != "" && $request->status != null) {
                 $status = $request->status;
                 $data = $data->where('status',$status);
+        }
+
+        if ($request->startDate != "" && $request->startDate != null ||
+            $request->endDate != "" && $request->endDate != null) {
+                $startDate = $request->startDate ?? date("Y/m/d");
+                $endDate = $request->endDate ?? date("Y/m/d");
+                $data = $data->whereBetween('created_at',[$startDate,$endDate]);
         }
 
 
@@ -31,10 +38,20 @@ class ReportController extends Controller
             $request->startDate != "" && $request->startDate != null ||
             $request->endDate != "" && $request->endDate != null
             ){
+                if($request->status == "" || $request->status == null ){
+                    $status = NULL;
+                }
+                if($request->startDate == "" || $request->startDate == null ){
+                    $startDate = NULL;
+                }
+                if($request->endDate == "" || $request->endDate == null ){
+                    $endDate = NULL;
+                }
                 $donasi = $data->get();
-                return view('report.index-report',compact('donasi','status'));
+                return view('report.index-report',compact('donasi','status','startDate','endDate'));
             }else{
                 $donasi = $data->paginate(5);
+                // dd($donasi);
                 return view('report.index-report',compact('donasi'));
             }
 

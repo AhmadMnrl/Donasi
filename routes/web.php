@@ -38,6 +38,8 @@ Route::prefix('api')->group(function () {
     Route::post('/loginApi','AuthController@postApi');
 
     Route::post('logoutApi','AuthController@logoutApi');
+
+    Route::get('/detail/{id}','AuthController@detail');
 });
 
 Route::group(['middleware' => 'auth','revalidate'],function(){
@@ -50,6 +52,7 @@ Route::group(['middleware' => 'auth','revalidate'],function(){
     Route::get('/donasi/edit/{id}','DonasiController@edit');
     Route::put('/donasi/update/{id}','DonasiController@update');
     Route::get('/donasi/destroy/{id}','DonasiController@destroy');
+
 
     // Berita
     Route::get('/berita','BeritaController@index')->name('berita');

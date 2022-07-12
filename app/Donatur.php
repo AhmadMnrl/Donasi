@@ -8,7 +8,7 @@ class Donatur extends Model
 {
     protected $table = 'donatur';
     protected $fillable = [
-        'nama','email','no_telp','alamat'
+        'nama','email','no_telp','alamat','password'
     ];
     protected $primaryKey = 'id';
 

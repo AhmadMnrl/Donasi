@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Donatur;
+use Hash;
 use Illuminate\Http\Request;
 
 class DonaturController extends Controller
@@ -36,12 +37,13 @@ class DonaturController extends Controller
      */
     public function store(Request $request)
     {
-        Donatur::create([
-    		'nama' => $request->nama,
-    		'email' => $request->email,
-            'no_telp'=> $request->no_telp,
-            'alamat'=> $request->alamat,
-    	]);
+        $donatur = new Donatur;
+        $donatur->nama = $request->nama;
+        $donatur->no_telp = $request->no_telp;
+        $donatur->email = $request->email;
+        $donatur->alamat = $request->alamat;
+        $donatur->password = Hash::make($request->password);
+        $donatur->save();
         return redirect('/donatur');
     }
 
@@ -77,14 +79,12 @@ class DonaturController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Donatur::find($id);
-        $value = [
-            'nama'=>$request ->nama,
-            'email'=>$request ->email,
-            'no_telp'=>$request ->no_telp,
-            'alamat'=> $request->alamat,
-        ];
-        $data->update($value);
+        $donatur = Donatur::findOrFail($id);
+        $donatur->update($request->all());
+        if(!empty($request->password)){
+            $donatur->password = Hash::make($request->password);
+        }
+        $donatur->save();
         return redirect('/donatur');
     }
 

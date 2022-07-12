@@ -17,6 +17,7 @@ class CreateDonatursTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email');
+            $table->string('password');
             $table->string('no_telp');
             $table->text('alamat');
             $table->timestamps();

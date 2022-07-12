@@ -30,7 +30,7 @@ class CreateDonasisTable extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kelurahan')->nullable();
             $table->text('full_address')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->date('created_at')->nullable();
             $table->date('updated_at')->nullable();
         });

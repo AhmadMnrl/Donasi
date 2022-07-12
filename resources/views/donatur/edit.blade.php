@@ -18,6 +18,10 @@
                         <input type="email" name="email" value="{{$donatur->email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">No Telp</label>
                         <input type="text" name="no_telp" value="{{$donatur->no_telp}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>

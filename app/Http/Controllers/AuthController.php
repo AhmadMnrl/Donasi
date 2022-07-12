@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Donatur;
 use Auth;
 
 class AuthController extends Controller
 {
     public function detail($id)
     {
-       $user = User::find($id);
-       return response()->json(["code" => "00", "message" => "success" , "data" => $user]);
+       $donatur = Donatur::find($id);
+       return response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
 
     }
+
     public function postApi(Request $request)
     {
         // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
@@ -27,19 +29,20 @@ class AuthController extends Controller
         //      return response()->json(["code" => "01", "message" => "error"]);
         // }
 
-        $user = User::where('email',$request->email)->first();
+        $donatur = donatur::where('email',$request->email)->first();
 
-        if($user != NULL){
-            // var_dump($user);
-            $verify = password_verify($request->password, $user->password);
+        if($donatur != NULL){
+            // var_dump($donatur);
+            $verify = password_verify($request->password, $donatur->password);
             // var_dump($verify);
             // die;
             if($verify){
                 // $success['token'] =  bin2hex(random_bytes(64));
-                $success['id'] = $user->id;
-                $success['name'] =  $user->name;
-                $success['role'] = $user->role;
-                $success['email'] = $user->email;
+                $success['id'] = $donatur->id;
+                $success['nama'] =  $donatur->nama;
+                $success['alamat'] = $donatur->alamat;
+                $success['email'] = $donatur->email;
+                $success['no_telp'] = $donatur->no_telp;
                 return response()->json(["code" => "00", "message" => "success" , "data" => $success]);
             }else{
                  return response()->json(["code" => "01", "message" => "Email or Password wrong"]);

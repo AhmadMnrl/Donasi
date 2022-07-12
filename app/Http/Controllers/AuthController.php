@@ -36,7 +36,7 @@ class AuthController extends Controller
             // die;
             if($verify){
                 // $success['token'] =  bin2hex(random_bytes(64));
-                // $success['id'] = Auth::id();
+                $success['id'] = $user->id;
                 $success['name'] =  $user->name;
                 $success['role'] = $user->role;
                 $success['email'] = $user->email;

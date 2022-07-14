@@ -29,8 +29,8 @@
                         <div class="col-sm-2 mr-2">
                             <select class="form-control" name="status">
                                 <option align="center" value="">--Status--</option>
-                                <option value="Belum Selesai" @if($status == "Belum Selesai") selected="" @endif>Belum Selesai</option>
-                                <option value="Selesai" @if($status == "Selesai") selected="" @endif>Selesai</option>
+                                <option value="Belum Selesai" @if(isset($status) == "Belum Selesai") selected="" @endif>Belum Selesai</option>
+                                <option value="Selesai" @if(isset($status) == "Selesai") selected="" @endif>Selesai</option>
                             </select>
                         </div>
                         <div class="col-sm-2 mr-4">

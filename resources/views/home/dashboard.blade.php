@@ -64,7 +64,7 @@
                                     @foreach ( $daftar as $key => $value )
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$value->donatur->nama}}</td>
+                                        <td>{{$value->donatur->nama ?? $value->name ?? ""}}</td>
                                         <td>{{$value->jenis_donasi}}</td>
                                         <td>{{$value->provinsi}}</td>
                                         <td>{{$value->pengiriman}}</td>

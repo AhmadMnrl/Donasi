@@ -36,7 +36,7 @@ class DonasiController extends Controller
         'kota' => $request->kota,
         'kecamatan' => $request->kecamatan,
         'kelurahan' => $request->kelurahan,
-        'fulladdress' => $request->full_address,
+        'full_address' => $request->full_address,
         'status' =>$request->status
         ]);
         return response()->json(["code" => "00", "message" => "success"]);

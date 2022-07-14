@@ -40,6 +40,8 @@ Route::prefix('api')->group(function () {
     Route::post('logoutApi','AuthController@logoutApi');
 
     Route::get('/detail/{id}','AuthController@detail');
+
+    Route::post('/submit','AuthController@submitDonatur');
 });
 
 Route::group(['middleware' => 'auth','revalidate'],function(){

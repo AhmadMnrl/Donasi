@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Donatur;
 use Auth;
-
+use Hash;
 class AuthController extends Controller
 {
     public function detail($id)
@@ -15,6 +15,18 @@ class AuthController extends Controller
        return response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
 
     }
+     public function submitDonatur(Request $request)
+    {
+        $donatur = new Donatur;
+        $donatur->nama = $request->nama;
+        $donatur->no_telp = $request->no_telp;
+        $donatur->email = $request->email;
+        $donatur->alamat = $request->alamat;
+        $donatur->password = Hash::make($request->password);
+        $donatur->save();
+        return response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
+    }
+
 
     public function postApi(Request $request)
     {

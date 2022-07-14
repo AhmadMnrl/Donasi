@@ -42,6 +42,8 @@ Route::prefix('api')->group(function () {
     Route::get('/detail/{id}','AuthController@detail');
 
     Route::post('/submit','AuthController@submitDonatur');
+    Route::put('/donatur/update/{id}','AuthController@updateDonatur');
+    Route::delete('/donatur/delete/{id}','AuthController@deleteDonatur');
 });
 
 Route::group(['middleware' => 'auth','revalidate'],function(){

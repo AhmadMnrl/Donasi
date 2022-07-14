@@ -26,8 +26,25 @@ class AuthController extends Controller
         $donatur->save();
         return response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
     }
-
-
+    public function updateDonatur(Request $request, $id)
+    {
+        $donatur = donatur::find($id);
+        $value = [
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+        ];
+        $donatur->update($value);
+        return response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
+    }
+     public function deleteDonatur($id)
+    {
+        $donatur = Donatur::find($id);
+        $donatur->delete();
+        return response()->json(["code" => "00", "message" => "success"]);
+    }
     public function postApi(Request $request)
     {
         // if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){

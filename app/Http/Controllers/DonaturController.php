@@ -79,12 +79,21 @@ class DonaturController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $donatur = Donatur::findOrFail($id);
-        $donatur->update($request->all());
-        if(!empty($request->password)){
-            $donatur->password = Hash::make($request->password);
-        }
-        $donatur->save();
+        // $donatur = Donatur::findOrFail($id);
+        // $donatur->update($request->all());
+        // if(!empty($request->password)){
+        //     $donatur->password = Hash::make($request->password);
+        // }
+        // $donatur->save();
+        $donatur = donatur::find($id);
+        $value = [
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+        ];
+        $donatur->update($value);
         return redirect('/donatur');
     }
 

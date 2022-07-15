@@ -71,6 +71,9 @@ Route::group(['middleware' => 'auth','revalidate'],function(){
 
     Route::get('/report','ReportController@indexReport')->name('report');
     Route::get('/report/export-excel-donasi', 'ReportController@export_excel')->name('export');
+
+    Route::get('/generate','GenerateController@index');
+    Route::get('/get-qr/{id}','GenerateController@getQR');
 });
 
 Route::group(['middleware' => ['auth','role:administrator','revalidate']],function(){

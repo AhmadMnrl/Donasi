@@ -71,7 +71,7 @@
                     </a>
                   </div>
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="#">
+                    <a class="mdc-drawer-link" href="/generate">
                       Generate
                     </a>
                   </div>

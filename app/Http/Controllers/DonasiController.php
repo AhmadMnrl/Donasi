@@ -21,10 +21,24 @@ class DonasiController extends Controller
     }
     public function createApi(Request $request)
     {
+        if (empty($request->id_donatur)) {
         Donasi::create([
         'name' => $request->name,
         'email' => $request->email,
         'no_tlp' => $request->no_tlp,
+        'jenis_pembayaran' => $request->jenis_pembayaran,
+        'jenis_donasi' => $request->jenis_donasi,
+        'jumlah' => $request->jumlah,
+        'pengiriman' => $request->pengiriman,
+        'provinsi' => $request->provinsi,
+        'kota' => $request->kota,
+        'kecamatan' => $request->kecamatan,
+        'kelurahan' => $request->kelurahan,
+        'full_address' => $request->full_address,
+        'status' =>$request->status
+        ]);
+        }else{
+        Donasi::create([
         'jenis_pembayaran' => $request->jenis_pembayaran,
         'id_donatur' => $request->id_donatur,
         'jenis_donasi' => $request->jenis_donasi,
@@ -37,6 +51,8 @@ class DonasiController extends Controller
         'full_address' => $request->full_address,
         'status' =>$request->status
         ]);
+        }
+
         return response()->json(["code" => "00", "message" => "success"]);
     }
     public function index()

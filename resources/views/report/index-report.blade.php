@@ -59,7 +59,7 @@
                     <tbody id="table-donasi">
                         <tr>
                             <td class="text-left">{{$no+1}}</td>
-                            <td class="text-left">{{$value->name}}</td>
+                            <td class="text-left">{{$value->donatur->name ?? $value->nama ?? ""}}</td>
                             <td class="text-left">{{$value->jenis_donasi}}</td>
                             <td class="text-left">{{$value->jumlah}}</td>
                             <td class="text-left">{{$value->pengiriman}}</td>

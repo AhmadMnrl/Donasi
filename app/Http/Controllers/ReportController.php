@@ -14,8 +14,7 @@ class ReportController extends Controller
 {
     public function indexReport(Request $request)
     {
-
-
+        
         $data = DB::table('donasis','a')
                 // ->join('donatur','a.id_donatur','=','donatur.id')
                 // ->select('a.*','donatur.*');

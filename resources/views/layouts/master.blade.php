@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AppDonasi</title>
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
@@ -17,11 +18,13 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/demo/style.css') }}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/app.png') }}" />
 
     {{-- boostrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    @yield('css-generate')
 
 </head>
 
@@ -29,13 +32,13 @@
     <script src="{{ asset('admin/assets/js/preloader.js') }}"></script>
     <div class="body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
+        <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open" id="hide-generator-side">
             @include('layouts.include.sidebar')
         </aside>
         <!-- partial -->
         <div class="main-wrapper mdc-drawer-app-content">
             <!-- partial:partials/_navbar.html -->
-            <header class="mdc-top-app-bar">
+            <header class="mdc-top-app-bar" id="hide-generator-top">
                 @include('layouts.include.navbar')
             </header>
             <!-- partial -->
@@ -51,6 +54,8 @@
             </div>
         </div>
     </div>
+
+    @yield('js-generate')
     {{-- boostrap --}}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">

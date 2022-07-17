@@ -21,7 +21,7 @@ class DonasiController extends Controller
     }
     public function createApi(Request $request)
     {
-        if (!empty($request->id_donatur)) {
+        if($request->id_donatur == null) {
         Donasi::create([
         'name' => $request->name,
         'email' => $request->email,
@@ -144,8 +144,7 @@ class DonasiController extends Controller
             'kota' => $request->kota,
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
-            'longitude' => $request->longitude,
-            'latitude' => $request->latitude,
+            'full_address' => $request->full_address,
             'status' =>$request->status
         ];
         $data->update($value);

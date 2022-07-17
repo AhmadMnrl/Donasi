@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Yayasan;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class GenerateController extends Controller
 {

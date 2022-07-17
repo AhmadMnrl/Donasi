@@ -12,7 +12,7 @@
                 <form class="col-md-10" action="" method="get">
                     <div class="col-md-12 d-flex ml-3 mt-3" style="">
                         <div class="col-md-2 mr-1">
-                            <a href="/report/export-excel-donasi?@if(isset($status))status= {{$status}}  @endif @if(isset($startDate))&startDate= {{$startDate}}  @endif" class="btn btn-success" target="_blank">EXPORT EXCEL</a>
+                            <a href="/report/export-excel-donasi?<?php if(isset($status)){echo "status=".$status;} if(isset($status) && isset($startDate)){echo "&";} if(isset($startDate)){echo "startDate=".$startDate;} if(isset($startDate) && isset($endDate) || isset($status) && isset($endDate)){echo "&";} if(isset($endDate)){echo "endDate=".$endDate;} ?>" class="btn btn-success" target="_blank">EXPORT EXCEL</a>
                         </div>
                         <div class="col-md-12 d-flex justify-content-end">
                             <div class="col-sm-2 mr-2">
@@ -26,8 +26,8 @@
                             <div class="col-sm-2 mr-2">
                                 <select class="form-control" name="status">
                                     <option align="center" value="">--Status--</option>
-                                    <option value="Belum Selesai" @if(isset($status) == "Belum Selesai") selected="" @endif>Belum Selesai</option>
-                                    <option value="Selesai" @if(isset($status) == "Selesai") selected="" @endif>Selesai</option>
+                                    <option value="Belum Selesai" @if(isset($status) && $status == "Belum Selesai") selected="" @endif>Belum Selesai</option>
+                                    <option value="Selesai" @if(isset($status) && $status == "Selesai") selected="" @endif>Selesai</option>
                                 </select>
                             </div>
                             <div class="col-sm-1">
@@ -74,10 +74,14 @@
             </div>
             </div>
             <div class="d-flex justify-content-end mt-3 mr-3">
-                @if(!isset($status))
-                    @if (isset($status) != NULL)
-                    {{$donasi -> links()}}
-                    @endif
+                @if(isset($status))
+
+                @elseif(isset($startDate))
+
+                @elseif(isset($startDate))
+
+                @else
+                {{$donasi -> links()}}
                 @endif
             </div>
         </div>

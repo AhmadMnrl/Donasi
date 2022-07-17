@@ -52,6 +52,7 @@ class ReportController extends Controller
                 }
                 $donasi = $data->get();
                 // dd($donasi);
+                // dd($status);
                 return view('report.index-report',compact('donasi','status','startDate','endDate'));
             }else{
                 $donasi = $data->paginate(5);
@@ -61,12 +62,20 @@ class ReportController extends Controller
 
 
     }
-    public function export_excel()
+    public function export_excel(Request $request)
 	{
+        // dd($request);
         $data = [];
-        // if(){
-
-        // }
-		return Excel::download(new DonasiExport, 'donasi-export.xlsx');
+        if($request->status != Null){
+            $data['status'] = $request->status;
+        }
+        if($request->startDate != Null){
+            $data['startDate'] = $request->startDate;
+        }
+        if($request->endDate != Null){
+            $data['endDate'] = $request->endDate;
+        }
+        // dd($data);
+		return Excel::download(new DonasiExport($data), 'donasi-export.xlsx');
 	}
 }

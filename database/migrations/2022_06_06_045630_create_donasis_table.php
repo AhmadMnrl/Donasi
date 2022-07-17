@@ -18,7 +18,7 @@ class CreateDonasisTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('no_tlp')->nullable();
-            $table->enum('jenis_pembayaran',['transfer','qr','link'])->nullable();
+            // $table->enum('jenis_pembayaran',['transfer','qr','link'])->nullable();
             $table->integer('id_donatur')->nullable();
             $table->enum('jenis_donasi',['barang','uang'])->nullable();
             $table->integer('jumlah')->nullable();

@@ -75,6 +75,7 @@ Route::group(['middleware' => 'auth','revalidate'],function(){
 
     Route::get('/generate','GenerateController@index');
     Route::get('/get-qr/{id}','GenerateController@getQR');
+    Route::get('/print-qr-donasi/{id}','GenerateController@print');
 });
 
 Route::group(['middleware' => ['auth','role:administrator','revalidate']],function(){

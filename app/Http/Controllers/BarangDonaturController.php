@@ -45,7 +45,7 @@ class BarangDonaturController extends Controller
     		'nama' => $request->nama,
     		'keterangan' => $request->keterangan
     	]);
-        return redirect('/barang');
+        return redirect('/barang')->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -86,7 +86,7 @@ class BarangDonaturController extends Controller
             'keterangan'=>$request ->keterangan
         ];
         $data->update($value);
-        return redirect('/barang');
+        return redirect('/barang')->with('message3','Data Berhasil Diedit');
     }
 
     /**
@@ -98,6 +98,6 @@ class BarangDonaturController extends Controller
     public function destroy($id)
     {
         Barang_donatur::destroy($id);
-        return redirect('/barang');
+        return redirect('/barang')->with('message2','Data Berhasil Dihapus');
     }
 }

@@ -67,7 +67,7 @@ class GalleryController extends Controller
 
         $foto->move(public_path().'/image',$v_foto);
 
-            return redirect('/gallery');
+            return redirect('/gallery')->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -113,6 +113,6 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         Gallery::destroy($id);
-        return redirect('/gallery');
+        return redirect('/gallery')->with('message2','Data Berhasil Dihapus');
     }
 }

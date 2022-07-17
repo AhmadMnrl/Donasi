@@ -1,5 +1,11 @@
 @extends('layouts.master')
 @section('content')
+ @if (session('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('message') }}</strong>
+    </div>
+ @endif
+
  <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 mt-2">
             <div class="mdc-card p-0">
                 <div class="row d-flex justify-content-center">

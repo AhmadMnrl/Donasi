@@ -22,7 +22,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect('/user');
+        return redirect('/user')->with('message','Data Berhasil Disimpan');
     }
 
     public function editUser($id) {
@@ -39,14 +39,14 @@ class UserController extends Controller
         }
         $user->save();
 
-        return redirect('/user');
+        return redirect('/user')->with('message3','Data Berhasil Diedit');
     }
 
     public function DeleteUser($id) {
 
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect('/user');
+        return redirect('/user')->with('message2','Data Berhasil Dihapus');
 
     }
 }

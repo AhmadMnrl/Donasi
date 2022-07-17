@@ -8,17 +8,21 @@ use App\Donasi;
 use App\Exports\DonasiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use App\Donatur;
+
 use DB;
 
 class ReportController extends Controller
 {
     public function indexReport(Request $request)
     {
-        
-        $data = DB::table('donasis','a')
+        // $donatur = Donatur::all();
+        $data = Donasi::
+                select('*');
                 // ->join('donatur','a.id_donatur','=','donatur.id')
                 // ->select('a.*','donatur.*');
-                ->select("*");
+                // all();
+
         if ($request->status != "" && $request->status != null) {
                 $status = $request->status;
                 $data = $data->where('status',$status);
@@ -47,6 +51,7 @@ class ReportController extends Controller
                     $endDate = NULL;
                 }
                 $donasi = $data->get();
+                // dd($donasi);
                 return view('report.index-report',compact('donasi','status','startDate','endDate'));
             }else{
                 $donasi = $data->paginate(5);
@@ -58,6 +63,10 @@ class ReportController extends Controller
     }
     public function export_excel()
 	{
+        $data = [];
+        // if(){
+
+        // }
 		return Excel::download(new DonasiExport, 'donasi-export.xlsx');
 	}
 }

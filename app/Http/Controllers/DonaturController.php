@@ -44,7 +44,7 @@ class DonaturController extends Controller
         $donatur->alamat = $request->alamat;
         $donatur->password = Hash::make($request->password);
         $donatur->save();
-        return redirect('/donatur');
+        return redirect('/donatur')->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -89,12 +89,11 @@ class DonaturController extends Controller
         $value = [
             'nama' => $request->nama,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
             'no_telp' => $request->no_telp,
             'alamat' => $request->alamat,
         ];
         $donatur->update($value);
-        return redirect('/donatur');
+        return redirect('/donatur')->with('message3','Data Berhasil Diedit');
     }
 
     /**
@@ -106,6 +105,6 @@ class DonaturController extends Controller
     public function destroy($id)
     {
         Donatur::destroy($id);
-        return redirect('/donatur');
+        return redirect('/donatur')->with('message2','Data Berhasil Dihapus');
     }
 }

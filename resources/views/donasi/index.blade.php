@@ -2,6 +2,21 @@
 @section('content')
 
     {{-- Table --}}
+     @if (session('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('message') }}</strong>
+    </div>
+    @endif
+    @if (session('message2'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ session('message2') }}</strong>
+    </div>
+    @endif
+     @if (session('message3'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>{{ session('message3') }}</strong>
+    </div>
+    @endif
     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 mt-2">
         <div class="mdc-card p-0">
              <div class="row">
@@ -36,7 +51,7 @@
                     <tbody id="table-donasi">
                         <tr>
                             <td class="text-left">{{$no+1}}</td>
-                            <td class="text-left">{{$value->donatur->nama ?? ""}}</td>
+                            <td class="text-left">{{$value->donatur->nama ?? ($value->name ?? '') }}</td>
                             <td class="text-left">{{$value->jenis_donasi}}</td>
                             <td class="text-left">{{$value->jumlah}}</td>
                             <td class="text-left">{{$value->pengiriman}}</td>

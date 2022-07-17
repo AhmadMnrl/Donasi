@@ -13,15 +13,15 @@ class GenerateController extends Controller
         return view('generate.index',compact('yayasan'));
     }
 
-    public function getId($id) {
+    public function getId($id)
+    {
         $yayasanID = Yayasan::find($id);
-
         return view('generate.index',compact('yayasanID'));
     }
 
     public function getQR($id)
     {
-         $yayasan = Yayasan::find($id);
+        $yayasan = Yayasan::find($id);
         return view('generate.qr',compact('yayasan'));
     }
 }

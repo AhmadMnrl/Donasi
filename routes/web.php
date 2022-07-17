@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // Yayasan
 Route::prefix('api')->group(function () {
-    Route::get('/test','TestController@show');
-    Route::post('/test/create','TestController@createYayasan');
-    Route::put('/test/update/{id}','TestController@updateYayasan');
-    Route::delete('/test/delete/{id}','TestController@deleteYayasan');
+    // Test Route
+    // Route::get('/test','TestController@show');
+    // Route::post('/test/create','TestController@createYayasan');
+    // Route::put('/test/update/{id}','TestController@updateYayasan');
+    // Route::delete('/test/delete/{id}','TestController@deleteYayasan');
 
     Route::get('/donatur','DonaturController@indexApi');
 
@@ -115,6 +116,8 @@ Route::group(['middleware' => ['auth','role:administrator','revalidate']],functi
 Route::get('/login','AuthController@getLogin')->name('login');
 Route::post('/postlogin','AuthController@postLogin');
 Route::get('/logout','AuthController@logout');
+
+Route::get('/landingPage','TestController@landingPage');
 
 
 

@@ -3,10 +3,10 @@
 namespace App\Exports;
 
 use App\Donasi;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class DonasiExport implements FromCollection, WithHeadings
+class DonasiExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -15,13 +15,9 @@ class DonasiExport implements FromCollection, WithHeadings
     {
         return Donasi::all();
     }
-    public function headings(): array
+    public function view(): View
     {
-        return [
-        'no','id_donatur','jenis_donasi','jumlah','pengiriman',
-        'provinsi','kota','kecamatan','kelurahan',
-        'latitude','longitude','status','Created At',
-        'Updated At'
-        ];
+        $donasi = Donasi::all();
+        return view('report.excel',compact('donasi'));
     }
 }

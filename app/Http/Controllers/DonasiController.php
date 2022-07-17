@@ -21,7 +21,7 @@ class DonasiController extends Controller
     }
     public function createApi(Request $request)
     {
-        if (empty($request->id_donatur)) {
+        if (!empty($request->id_donatur)) {
         Donasi::create([
         'name' => $request->name,
         'email' => $request->email,
@@ -98,7 +98,7 @@ class DonasiController extends Controller
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d")
         ]);
-        return redirect('/donasi');
+        return redirect('/donasi')->with('message','Data Berhasil Disimpan');
     }
 
     /**
@@ -149,7 +149,7 @@ class DonasiController extends Controller
             'status' =>$request->status
         ];
         $data->update($value);
-        return redirect('/donasi');
+        return redirect('/donasi')->with('message3','Data Berhasil Diedit');
     }
 
     /**
@@ -161,6 +161,6 @@ class DonasiController extends Controller
     public function destroy($id)
     {
         Donasi::destroy($id);
-        return redirect('/donasi');
+        return redirect('/donasi')->with('message2','Data Berhasil Dihapus');
     }
 }

@@ -51,5 +51,9 @@ class TestController extends Controller
         $yayasan->delete();
         return response()->json(["code" => "00", "message" => "success"]);
     }
+    public function landingPage()
+    {
+        return view('landing.index');
+    }
 
 }

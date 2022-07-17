@@ -33,7 +33,7 @@
                 <table class="table table-hoverable">
                     <thead>
                         <tr>
-                            <th class="text-left">Nama Lengkap</th>
+                            <th class="text-left">Nama Yayasan</th>
                             <th class="text-left">Email</th>
                             <th class="text-left">No Telpon</th>
                             <th class="text-left">Address</th>

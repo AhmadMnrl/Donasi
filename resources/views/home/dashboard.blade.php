@@ -54,7 +54,6 @@
                                         <th>#</th>
                                         <th>Nama Donatur</th>
                                         <th>Jenis Donasi</th>
-                                        <th>Provinsi</th>
                                         <th>Jenis Pengiriman</th>
                                         <th>Jumlah</th>
                                         <th>status</th>
@@ -66,7 +65,6 @@
                                         <td>{{$key+1}}</td>
                                         <td>{{$value->donatur->nama ?? $value->name ?? ""}}</td>
                                         <td>{{$value->jenis_donasi}}</td>
-                                        <td>{{$value->provinsi}}</td>
                                         <td>{{$value->pengiriman}}</td>
                                         <td>{{$value->jumlah}}</td>
                                         <td>{{$value->status}}</td>

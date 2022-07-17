@@ -40,13 +40,13 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
-                        <input type="text" name="kelurahan" class="form-control" id="exampleInputEmail1"
+                        <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
+                        <input type="text" name="kecamatan" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
-                        <input type="text" name="kecamatan" class="form-control" id="exampleInputEmail1"
+                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
+                        <input type="text" name="kelurahan" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">

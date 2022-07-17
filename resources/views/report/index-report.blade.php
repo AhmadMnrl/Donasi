@@ -65,10 +65,10 @@
                                 <th class="text-left">Jenis Donasi</th>
                                 <th class="text-left">Jumlah</th>
                                 <th class="text-left">Pengiriman</th>
-                                <th class="text-left">Provinsi</th>
-                                <th class="text-left">Kota</th>
-                                <th class="text-left">Kecamatan</th>
                                 <th class="text-left">Kelurahan</th>
+                                <th class="text-left">Kecamatan</th>
+                                <th class="text-left">Kota</th>
+                                <th class="text-left">Provinsi</th>
                                 <th class="text-left">Full Address</th>
                                 <th class="text-left">Status</th>
                             </tr>
@@ -81,10 +81,10 @@
                                     <td class="text-left">{{ $value->jenis_donasi }}</td>
                                     <td class="text-left">{{ $value->jumlah }}</td>
                                     <td class="text-left">{{ $value->pengiriman }}</td>
-                                    <td class="text-left">{{ $value->provinsi }}</td>
-                                    <td class="text-left">{{ $value->kota }}</td>
-                                    <td class="text-left">{{ $value->kecamatan }}</td>
                                     <td class="text-left">{{ $value->kelurahan }}</td>
+                                    <td class="text-left">{{ $value->kecamatan }}</td>
+                                    <td class="text-left">{{ $value->kota }}</td>
+                                    <td class="text-left">{{ $value->provinsi }}</td>
                                     <td class="text-left">{{ $value->full_address }}</td>
                                     <td class="text-left">{{ $value->status }}</td>
                                 </tr>

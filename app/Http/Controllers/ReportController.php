@@ -55,7 +55,7 @@ class ReportController extends Controller
                 // dd($status);
                 return view('report.index-report',compact('donasi','status','startDate','endDate'));
             }else{
-                $donasi = $data->paginate(5);
+                $donasi = $data->paginate(50);
                 // dd($donasi);
                 return view('report.index-report',compact('donasi'));
             }

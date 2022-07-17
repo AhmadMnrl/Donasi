@@ -25,7 +25,7 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         // $limit = $request->limit ?? 10;
-        $data = Berita::paginate(5);
+        $data = Berita::paginate(50);
         return view('berita.index',compact('data'));
     }
 

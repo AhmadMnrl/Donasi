@@ -13,8 +13,8 @@
                         <label for="exampleInputEmail1" class="form-label">Donatur</label>
                         <select class="form-select" name="id_donatur" id="">
                             <option value="" disabled selected>Pilih Donatur</option>
-                            @foreach($donatur as $value)
-                            <option value="{{$value->id}}">{{$value->nama}}</option>
+                            @foreach ($donatur as $value)
+                                <option value="{{ $value->id }}">{{ $value->nama }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -26,7 +26,7 @@
                             <option value="uang">Uang</option>
                         </select>
                     </div>
-                     <div class="mb-3">
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Jumlah</label>
                         <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp">
@@ -39,31 +39,31 @@
                             <option value="Diantar">Diantar</option>
                         </select>
                     </div>
-                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Provinsi</label>
-                        <input type="text" name="provinsi" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
-                    </div>
-                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kota</label>
-                        <input type="text" name="kota" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
-                    </div>
-                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
-                        <input type="text" name="kecamatan" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
-                    </div>
-                     <div class="mb-3">
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
                         <input type="text" name="kelurahan" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp">
                     </div>
-                     <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
+                        <input type="text" name="kecamatan" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Kota</label>
+                        <input type="text" name="kota" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Provinsi</label>
+                        <input type="text" name="provinsi" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full Address</label>
                         <textarea class="form-control" name="full_address" id="floatingTextarea"></textarea>
                     </div>
-                     <div class="mb-3">
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Status</label>
                         <select class="form-select" name="status" id="">
                             <option value="Selesai">Selesai</option>

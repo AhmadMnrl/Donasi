@@ -28,7 +28,7 @@ class GalleryController extends Controller
     }
     public function index()
     {
-        $data = Gallery::paginate(5);
+        $data = Gallery::paginate(10);
         $yayasan = Yayasan::all();
         return view('gallery.index',compact(['data','yayasan']));
     }

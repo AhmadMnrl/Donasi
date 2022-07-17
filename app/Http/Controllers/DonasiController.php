@@ -35,7 +35,7 @@ class DonasiController extends Controller
         'kecamatan' => $request->kecamatan,
         'kelurahan' => $request->kelurahan,
         'full_address' => $request->full_address,
-        'status' =>$request->status
+        'status' =>'Belum Selesai'
         ]);
         }else{
         Donasi::create([
@@ -49,7 +49,7 @@ class DonasiController extends Controller
         'kecamatan' => $request->kecamatan,
         'kelurahan' => $request->kelurahan,
         'full_address' => $request->full_address,
-        'status' =>$request->status
+        'status' => 'Belum Selesai'
         ]);
         }
 
@@ -58,7 +58,7 @@ class DonasiController extends Controller
     public function index()
     {
         $donatur = Donatur::all();
-        $data = Donasi::paginate(3);
+        $data = Donasi::paginate(50);
         return view('donasi.index',compact('data','donatur'));
     }
 

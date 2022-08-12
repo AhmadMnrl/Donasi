@@ -6,7 +6,7 @@
                 <div class="mdc-card">
                     <h6 class="card-title">Edit Data</h6>
                     <div class="template-demo">
-                        <form method="POST" action="/donasi/update/{{ $donasi->id }}">
+                        <form method="POST" action="/donasi/update/{{ $donasi->id }}"  enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
@@ -73,7 +73,11 @@
                                     <option value="Belum Selesai">Belum Selesai</option>
                                 </select>
                             </div>
-
+                             <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Foto</label>
+                                <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

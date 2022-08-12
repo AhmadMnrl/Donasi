@@ -66,7 +66,9 @@
 
                                 <td class="text-left">
                                     @if($value->foto > 0)
-                                        <img src="{{asset('image/'.$value->foto)}}" alt="" width="50%" height="50px" style="max-width: 100%; max-height: 100%;">
+                                    <a href="{{asset('image/'.$value->foto)}}" target="_blank" rel="noopener noreferrer">
+                                        <img src="{{asset('image/'.$value->foto)}}" alt="" width="50%" height="35px" style="max-width: 100%; max-height: 100%;">
+                                    </a>
                                     @else
                                         <strong>NULL</strong>
                                     @endif

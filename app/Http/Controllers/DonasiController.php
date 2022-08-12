@@ -174,6 +174,16 @@ class DonasiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request->foto != NULL){
+            $foto = $request->foto;
+            $v_foto = time()."_Donasi_".$foto->getClientOriginalName();
+        }
+        if(isset($v_foto)){
+            $foto->move(public_path().'/image',$v_foto);
+            $fileUrl = public_path().'/image/'.$v_foto;
+        }else{
+            $fileUrl = NULL;
+        }
         $data = Donasi::find($id);
         $value = [
             'id_donatur' => $request->id_donatur,
@@ -185,7 +195,9 @@ class DonasiController extends Controller
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
             'full_address' => $request->full_address,
-            'status' =>$request->status
+            'status' =>$request->status,
+            'foto' => $v_foto,
+            'url_foto' => $fileUrl
         ];
         $data->update($value);
         return redirect('/donasi')->with('message3','Data Berhasil Diedit');

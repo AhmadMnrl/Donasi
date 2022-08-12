@@ -24,9 +24,11 @@ class DonasiController extends Controller
          if($request->foto > 0  && $request->foto != NULL){
             $foto = $request->foto;
             $v_foto = time()."_Donasi_".$foto->getClientOriginalName();
+        }else{
+            $v_foto = NULL;
         }
 
-        if(isset($v_foto)){
+        if($v_foto != NULL){
             $foto->move(public_path().'/image',$v_foto);
             $fileUrl = public_path().'/image/'.$v_foto;
         }else{
@@ -107,8 +109,10 @@ class DonasiController extends Controller
         if($request->foto != NULL){
             $foto = $request->foto;
             $v_foto = time()."_Donasi_".$foto->getClientOriginalName();
+        }else{
+            $v_foto = NULL;
         }
-        if(isset($v_foto)){
+        if($v_foto != NULL){
             $foto->move(public_path().'/image',$v_foto);
             $fileUrl = public_path().'/image/'.$v_foto;
         }else{
@@ -177,8 +181,10 @@ class DonasiController extends Controller
         if($request->foto != NULL){
             $foto = $request->foto;
             $v_foto = time()."_Donasi_".$foto->getClientOriginalName();
+        }else{
+            $v_foto = NULL;
         }
-        if(isset($v_foto)){
+        if($v_foto !=  NULL){
             $foto->move(public_path().'/image',$v_foto);
             $fileUrl = public_path().'/image/'.$v_foto;
         }else{

@@ -10,7 +10,7 @@ class Donasi extends Model
     protected $fillable = [
         'id_donatur','jenis_donasi','jumlah','pengiriman',
         'provinsi','kota','kecamatan','kelurahan','full_address','status',
-        'name','email','no_tlp','jenis_pembayaran'
+        'name','email','no_tlp','jenis_pembayaran','url_foto','foto'
     ];
     protected $primaryKey = 'id';
 

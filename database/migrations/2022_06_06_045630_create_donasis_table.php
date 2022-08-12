@@ -30,6 +30,7 @@ class CreateDonasisTable extends Migration
             $table->text('full_address')->nullable();
             $table->string('status')->nullable();
             $table->string('foto')->nullable();
+            $table->string('url_foto')->nullable();
             $table->date('created_at')->nullable();
             $table->date('updated_at')->nullable();
         });

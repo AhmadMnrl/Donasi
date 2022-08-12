@@ -45,6 +45,7 @@
                             <th class="text-left">Provinsi</th>
                             <th class="text-left">Full Address</th>
                             <th class="text-left">Status</th>
+                            <th class="text-left">Foto</th>
                             <th class="text-left">Action</th>
                         </tr>
                     </thead>
@@ -62,6 +63,14 @@
                                 <td class="text-left">{{ $value->provinsi }}</td>
                                 <td class="text-left">{{ $value->full_address }}</td>
                                 <td class="text-left">{{ $value->status }}</td>
+
+                                <td class="text-left">
+                                    @if($value->foto > 0)
+                                        <img src="{{asset('image/'.$value->foto)}}" alt="" width="50%" height="50px" style="max-width: 100%; max-height: 100%;">
+                                    @else
+                                        <strong>NULL</strong>
+                                    @endif
+                                 </td>
                                 <td class="text-left">
                                     <a href="/donasi/edit/{{ $value->id }}"
                                         class="mdc-button mdc-button--raised icon-button filled-button--success mdc-ripple-upgraded"

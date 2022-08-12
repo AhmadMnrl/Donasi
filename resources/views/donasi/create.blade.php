@@ -70,6 +70,11 @@
                             <option value="Belum Selesai">Belum Selesai</option>
                         </select>
                     </div>
+                     <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Foto</label>
+                        <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </form>

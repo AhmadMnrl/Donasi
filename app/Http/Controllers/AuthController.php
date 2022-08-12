@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function detail($id)
     {
        $donatur = Donatur::find($id);
-       return response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
+       response()->json(["code" => "00", "message" => "success" , "data" => $donatur]);
 
     }
      public function submitDonatur(Request $request)

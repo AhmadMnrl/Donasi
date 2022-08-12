@@ -21,39 +21,54 @@ class DonasiController extends Controller
     }
     public function createApi(Request $request)
     {
-        if($request->id_donatur == null) {
-        Donasi::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'no_tlp' => $request->no_tlp,
-        'jenis_pembayaran' => $request->jenis_pembayaran,
-        'jenis_donasi' => $request->jenis_donasi,
-        'jumlah' => $request->jumlah,
-        'pengiriman' => $request->pengiriman,
-        'provinsi' => $request->provinsi,
-        'kota' => $request->kota,
-        'kecamatan' => $request->kecamatan,
-        'kelurahan' => $request->kelurahan,
-        'full_address' => $request->full_address,
-        'status' =>'Belum Selesai'
-        ]);
-        }else{
-        Donasi::create([
-        'jenis_pembayaran' => $request->jenis_pembayaran,
-        'id_donatur' => $request->id_donatur,
-        'jenis_donasi' => $request->jenis_donasi,
-        'jumlah' => $request->jumlah,
-        'pengiriman' => $request->pengiriman,
-        'provinsi' => $request->provinsi,
-        'kota' => $request->kota,
-        'kecamatan' => $request->kecamatan,
-        'kelurahan' => $request->kelurahan,
-        'full_address' => $request->full_address,
-        'status' => 'Belum Selesai'
-        ]);
+         if($request->foto > 0  && $request->foto != NULL){
+            $foto = $request->foto;
+            $v_foto = $foto->getClientOriginalName()."_".time();
         }
 
-        return response()->json(["code" => "00", "message" => "success"]);
+        if(isset($v_foto)){
+            $foto->move(public_path().'/image',$v_foto);
+            $fileUrl = public_path().'/image/'.$v_foto;
+        }else{
+            $fileUrl = NULL;
+        }
+
+
+        if($request->id_donatur == null) {
+            Donasi::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'no_tlp' => $request->no_tlp,
+            // 'jenis_pembayaran' => $request->jenis_pembayaran,
+            'jenis_donasi' => $request->jenis_donasi,
+            'jumlah' => $request->jumlah,
+            'pengiriman' => $request->pengiriman,
+            'provinsi' => $request->provinsi,
+            'kota' => $request->kota,
+            'kecamatan' => $request->kecamatan,
+            'kelurahan' => $request->kelurahan,
+            'full_address' => $request->full_address,
+            'status' => 'Belum Selesai',
+            'foto' => $fileUrl
+            ]);
+        }else{
+        Donasi::create([
+            // 'jenis_pembayaran' => $request->jenis_pembayaran,
+            'id_donatur' => $request->id_donatur,
+            'jenis_donasi' => $request->jenis_donasi,
+            'jumlah' => $request->jumlah,
+            'pengiriman' => $request->pengiriman,
+            'provinsi' => $request->provinsi,
+            'kota' => $request->kota,
+            'kecamatan' => $request->kecamatan,
+            'kelurahan' => $request->kelurahan,
+            'full_address' => $request->full_address,
+            'status' => 'Belum Selesai',
+            'foto' => $fileUrl
+            ]);
+        }
+
+        return response()->json(["code" => "00", "message" => "success",'file'=>$fileUrl]);
     }
     public function index()
     {
@@ -81,10 +96,6 @@ class DonasiController extends Controller
     public function store(Request $request)
     {
          Donasi::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'no_tlp' => $request->no_tlp,
-            'jenis_pembayaran' => $request->jenis_pembayaran,
             'id_donatur' => $request->id_donatur,
             'jenis_donasi' => $request->jenis_donasi,
             'jumlah' => $request->jumlah,

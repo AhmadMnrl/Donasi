@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
 
         $saldo = Donasi::select(DB::raw("SUM(jumlah) as saldo"))
-        ->where("jenis_donasi","uang")->Where('status','selesai')->from("donasis")->first();
+        ->where("jenis_donasi","uang")->from("donasis")->first();
 
         $daftar = Donasi::where('status', 'Belum Selesai')->get();
 

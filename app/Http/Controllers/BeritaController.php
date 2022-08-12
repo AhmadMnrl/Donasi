@@ -79,6 +79,7 @@ class BeritaController extends Controller
         if(isset($v_foto)){
             $foto->move(public_path().'/image',$v_foto);
         }
+
         return redirect('/berita')->with('message','Data Berhasil Disimpan');
     }
 
